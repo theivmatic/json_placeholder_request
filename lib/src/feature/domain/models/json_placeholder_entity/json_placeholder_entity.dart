@@ -3,19 +3,19 @@ import 'package:json_annotation/json_annotation.dart';
 part 'json_placeholder_entity.g.dart';
 
 @JsonSerializable()
-class Post {
+class PostEntity {
   @JsonKey(name: 'userId')
   final int userID;
   final int id;
   final String title;
   final String body;
 
-  Post(
+  PostEntity(
       {required this.userID,
       required this.id,
       required this.title,
       required this.body});
 
-  factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
-  Map<String, dynamic> toJson() => _$PostToJson(this);
+  factory PostEntity.fromJson(Map<String, dynamic> json) => _$PostEntityFromJson(json);
+  Map<String, dynamic> toJson() => _$PostEntityToJson(this);
 }
