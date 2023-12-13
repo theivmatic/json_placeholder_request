@@ -1,6 +1,14 @@
+import 'dart:convert';
+
 import 'package:json_annotation/json_annotation.dart';
 
 part 'json_placeholder_entity.g.dart';
+
+PostEntity postEntityDataFromString(String jsonString) {
+  Map<String, dynamic> jsonMap = json.decode(jsonString);
+  return PostEntity.fromJson(jsonMap);
+}
+
 
 @JsonSerializable()
 class PostEntity {

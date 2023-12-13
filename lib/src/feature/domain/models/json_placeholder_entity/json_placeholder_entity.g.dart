@@ -13,7 +13,8 @@ PostEntity _$PostEntityFromJson(Map<String, dynamic> json) => PostEntity(
       body: json['body'] as String,
     );
 
-Map<String, dynamic> _$PostEntityToJson(PostEntity instance) => <String, dynamic>{
+Map<String, dynamic> _$PostEntityToJson(PostEntity instance) =>
+    <String, dynamic>{
       'userId': instance.userID,
       'id': instance.id,
       'title': instance.title,
