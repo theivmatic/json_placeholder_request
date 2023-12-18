@@ -7,10 +7,10 @@ part of 'json_placeholder_entity.dart';
 // **************************************************************************
 
 PostEntity _$PostEntityFromJson(Map<String, dynamic> json) => PostEntity(
-      userID: json['userId'] as int,
-      id: json['id'] as int,
-      title: json['title'] as String,
-      body: json['body'] as String,
+      userID: json['userId'] as int?,
+      id: json['id'] as int?,
+      title: json['title'] as String?,
+      body: json['body'] as String?,
     );
 
 Map<String, dynamic> _$PostEntityToJson(PostEntity instance) =>

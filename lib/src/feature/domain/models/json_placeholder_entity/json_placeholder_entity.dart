@@ -4,26 +4,26 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'json_placeholder_entity.g.dart';
 
-PostEntity postEntityDataFromString(String jsonString) {
-  Map<String, dynamic> jsonMap = json.decode(jsonString);
-  return PostEntity.fromJson(jsonMap);
-}
-
+List<PostEntity> postListEntityDataFromString(String jsonString) =>
+    List<PostEntity>.from(
+        json.decode(jsonString).map((e) => PostEntity.fromJson(e)));
 
 @JsonSerializable()
 class PostEntity {
   @JsonKey(name: 'userId')
-  final int userID;
-  final int id;
-  final String title;
-  final String body;
+  final int? userID;
+  final int? id;
+  final String? title;
+  final String? body;
 
-  PostEntity(
-      {required this.userID,
-      required this.id,
-      required this.title,
-      required this.body});
+  PostEntity({
+    this.userID,
+    this.id,
+    this.title,
+    this.body,
+  });
 
-  factory PostEntity.fromJson(Map<String, dynamic> json) => _$PostEntityFromJson(json);
+  factory PostEntity.fromJson(Map<String, dynamic> json) =>
+      _$PostEntityFromJson(json);
   Map<String, dynamic> toJson() => _$PostEntityToJson(this);
 }

@@ -9,7 +9,7 @@ class DataJsonPlaceholderApiImpl implements IDataJsonPlaceholderApi {
       : _client = client ?? http.Client();
 
   @override
-  Future<PostEntity> fetchJsonPlaceholder({dynamic}) async {
+  Future<List<PostEntity>> fetchJsonPlaceholder() async {
     final responce = await _client!.get(
       Uri.parse('https://jsonplaceholder.typicode.com/posts'),
       headers: {
@@ -17,7 +17,7 @@ class DataJsonPlaceholderApiImpl implements IDataJsonPlaceholderApi {
       },
     );
     if (responce.statusCode == 200) {
-      return postEntityDataFromString(responce.body);
+      return postListEntityDataFromString(responce.body);
     } else {
       throw Exception(
           'Status Code: ${responce.statusCode}, Message: ${responce.reasonPhrase}');
