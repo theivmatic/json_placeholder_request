@@ -1,4 +1,4 @@
-part of 'json_placeholder_bloc_bloc.dart';
+part of 'json_placeholder_bloc.dart';
 
 @immutable
 sealed class JsonPlaceholderBlocState {}
@@ -8,7 +8,7 @@ final class JsonPlaceholderBlocInitialState extends JsonPlaceholderBlocState {}
 final class JsonPlaceholderBlocLoadingState extends JsonPlaceholderBlocState {}
 
 final class JsonPlaceholderBlocLoadedState extends JsonPlaceholderBlocState {
-  final PostEntity jsonPlaceholderLoaded;
+  final List<PostEntity> jsonPlaceholderLoaded;
 
   JsonPlaceholderBlocLoadedState({required this.jsonPlaceholderLoaded});
 }
