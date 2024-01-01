@@ -23,16 +23,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 234, 240, 244),
       body: BlocBuilder<JsonPlaceholderBloc, JsonPlaceholderBlocState>(
           bloc: jsonPlaceholderBloc,
           builder: (context, state) => switch (state) {
                 JsonPlaceholderBlocLoadedState() => ListView.separated(
                     itemBuilder: (context, index) {
-                      return const PostCardWidget();
+                      return PostCardWidget(userID: state.jsonPlaceholderLoaded[index].userID, title: state.jsonPlaceholderLoaded[index].title, post: state.jsonPlaceholderLoaded[index].body,);
                     },
                     separatorBuilder: (BuildContext context, int index) =>
-                        const Divider(color: Colors.white,),
-                    itemCount: 10,
+                        const Divider(color: Color.fromARGB(255, 234, 240, 244),),
+                    itemCount: state.jsonPlaceholderLoaded.length,
                   ),
                 JsonPlaceholderBlocLoadingState() => const SizedBox(),
                 JsonPlaceholderBlocErrorState() => const SizedBox(),

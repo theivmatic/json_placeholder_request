@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
 class PostCardWidget extends StatelessWidget {
-  const PostCardWidget({super.key});
+  final int? userID;
+  final String? title;
+  final String? post;
+
+  const PostCardWidget(
+      {super.key,
+      required this.userID,
+      required this.title,
+      required this.post});
 
   @override
   Widget build(BuildContext context) {
@@ -12,26 +20,33 @@ class PostCardWidget extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: 300,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20), color: Colors.amber),
+            borderRadius: BorderRadius.circular(30),
+            color: Color.fromARGB(255, 238, 209, 239),
+            
+          ),
           child: Column(
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: const BoxDecoration(color: Colors.cyan),
+                  const Icon(
+                    Icons.person_rounded,
+                    size: 100,
                   ),
-                  const Column(
-                    children: [
-                      Text('11'),
-                      Text('22'),
-                    ],
-                  )
+                  Flexible(
+                    child: Text(
+                      '$title',
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ],
               ),
-              const Text('sss'),
+              Text(
+                '$post',
+                style: const TextStyle(fontSize: 15),
+              ),
             ],
           ),
         ),
