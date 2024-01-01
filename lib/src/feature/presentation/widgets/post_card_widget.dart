@@ -13,42 +13,39 @@ class PostCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: const Color.fromARGB(255, 238, 209, 239),
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: 300,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            color: Color.fromARGB(255, 238, 209, 239),
-            
-          ),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  const Icon(
-                    Icons.person_rounded,
-                    size: 100,
-                  ),
-                  Flexible(
-                    child: Text(
-                      '$title',
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+        padding: const EdgeInsets.fromLTRB(12, 12, 12, 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                const Icon(
+                  Icons.person_rounded,
+                  size: 100,
+                ),
+                Flexible(
+                  child: Text(
+                    '$title',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                ],
-              ),
-              Text(
-                '$post',
-                style: const TextStyle(fontSize: 15),
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+            Text(
+              '$post',
+              style: const TextStyle(fontSize: 15),
+            ),
+          ],
         ),
       ),
     );
